@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="header.css">
+    <script defer src="script.js"></script>
+    <style>
+        /* Задание 2: Анимация для параграфа */
+        .text-paragraph {
+            transition: background-color 0.5s ease;
+        }
+
+        /* Задание 3: Анимация для таблицы лекций */
+        #lecturesTable {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        /* Задание 5: Анимация для сообщения о отправке формы */
+        #formMessage {
+            opacity: 0;
+            transition: opacity 0.5s ease, color 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 class="main-heading">Группа ЭФБО-08-23</h1>
+    <h2 class="sub-headin">Вербовский Артём</h2>
+</header>
+
+<nav class="main-nav">
+    <a href="auth.html">Главная</a>
+    <a href="bsem1.html">Первый семестр</a>
+    <a href="#">Второй семестр</a>
+    <a href="form.html">Услуги</a>
+</nav>
+
+<main>
+    <h1 class="main-heading">Добро пожаловать на мой сайт</h1>
+    <div class="content-wrapper">
+        <nav class="side-nav">
+            <h3 class="sub-heading">Навигация по странице</h3>
+            <ul>
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#frontend">Фронтенд</a></li>
+                <li><a href="#backend">Бэкенд</a></li>
+            </ul>
+        </nav>
+        <div class="main-content">
+            <p id="about" class="text-paragraph">Меня зовут Вербовский Артём и я начинающий специалист по веб-разработке.</p>
+
+            <h2 id="frontend" class="sub-heading">Фронтенд</h2>
+            <p class="text-paragraph">Фронтенд (или клиентская часть) — это то, что видит пользователь. Он включает в себя все визуальные элементы веб-сайта или приложения: кнопки, формы, изображения и текст. Фронтенд разработчики используют языки разметки и стилизации, такие как HTML, CSS и JavaScript, чтобы создавать интерактивные и привлекательные интерфейсы. Основная задача фронтенда — обеспечить удобство использования и эстетическую привлекательность.</p>
+             
+            <div class="product-card highlight">
+                <video controls>
+                    <source src="a.geeksforgeeks.org/wp-content/uploads/20231020155223/Full-Stack-Development-_-LIVE-Classes-_-GeeksforGeeks.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <h2 id="backend" class="sub-heading">Бэкенд</h2>
+            <p class="text-paragraph">Бэкенд (или серверная часть) — это "за кулисами" веб-приложения. Он отвечает за обработку данных, управление пользователями и взаимодействие с базами данных. Бэкенд разработчики используют языки программирования, такие как Python, Ruby, Java или PHP, а также фреймворки и базы данных для создания логики приложения. Основная задача бэкенда — обеспечить стабильную работу приложения и безопасность данных.</p>
+
+            <div class="product-card">
+                <video controls>
+                    <source src="https://media.geekorgeeks.org/wp-content/uploads/20190616234019/Canvas.move_.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            
+            <button id="showLectures">Показать лекции</button>
+            <table id="lecturesTable">
+                <tr>
+                    <th>Дата</th>
+                    <th>Тема</th>
+                </tr>
+                <tr>
+                    <td>01.09.2024</td>
+                    <td>Введение в веб-разработку</td>
+                </tr>
+                <tr>
+                    <td>08.09.2024</td>
+                    <td>Основы HTML и CSS</td>
+                </tr>
+            </table>
+
+            
+            <form id="myForm">
+                <input type="text" placeholder="Ваше имя">
+                <button type="submit">Отправить</button>
+            </form>
+            <p id="formMessage">Форма отправлена!</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p class="text-paragraph">© Вербовский Артём, 2024</p>
+</footer>
+
+<script>
+
+    const showLecturesBtn = document.getElementById('showLectures');
+    const lecturesTable = document.getElementById('lecturesTable');
+    showLecturesBtn.addEventListener('click', function() {
+        if (lecturesTable.style.display === 'none' || lecturesTable.style.display === '') {
+            lecturesTable.style.display = 'block';
+            setTimeout(() => {
+                lecturesTable.style.opacity = '1';
+            }, 10);
+        } else {
+            lecturesTable.style.opacity = '0';
+            setTimeout(() => {
+                lecturesTable.style.display = 'none';
+            }, 500);
+        }
+    });
+
+    const myForm = document.getElementById('myForm');
+    const formMessage = document.getElementById('formMessage');
+    myForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        formMessage.style.opacity = '1';
+        formMessage.style.color = 'green';
+        setTimeout(() => {
+            formMessage.style.opacity = '0';
+        }, 3000);
+    });
+</script>
+<script defer src="script.js"></script>
+</body>
+</html>

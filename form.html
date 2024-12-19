@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+    <link rel="stylesheet" href="style4.css">
+    <link rel="stylesheet" href="header.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <script defer src="script.js"></script>
+    <header>
+        <h1 class="main-heading">Группа ЭФБО-08-23</h1>
+        <h2 class="sub-headin">Вербовский Артём</h2>
+    </header>
+    
+    <nav class="main-nav">
+        <a href="auth.html">Главная</a>
+        <a href="bsem1.html">Первый семестр</a>
+        <a href="#">Второй семестр</a>
+        <a href="form.html">Услуги</a>
+    </nav>
+
+    <main>
+        <h1>Разработка веб-приложений</h1>
+        
+        <div class="grid-container">
+            <div class="grid-item"><h2>не знаю</h2><p>не придумал</p><img src="2955487260378327_8002.jpg" alt="Изображение 1"></div>
+            <div class="grid-item"><h2>кооперативный сайт</h2><p>выбирай с умом</p><img src="802230d24e2301c3ffd5bf5ae910e2d4.jpg" alt="Изображение 2"></div>
+            <div class="grid-item"><h2>интернет магазин</h2><p>покупай с интересом</p><img src="81f6a56c2c0359938b67419fa436868a.jpg" alt="Изображение 3"></div>
+            <div class="grid-item"><h2>фронтенд</h2><p>учись</p><img src=".vscode/i.webp" alt="Изображение 4"></div>
+            <div class="grid-item"><h2>бекенд</h2><p>почему не учишься</p><img src=".vscode/i.webp" alt="Изображение 4"></div>
+        </div>
+
+        <div class="product-container">
+            <div class="product-card">
+                <h3>iPhone 16</h3>
+                <p>Чтобы посчитать все нововведения пальцев не хватит</p>
+                <button class="open-form">Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Apple Watch Series 10, 46 мм</h3>
+                <p>Увеличенный дисплей с самым большим экраном</p>
+                <button class="open-form">Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>AirPods Max 2</h3>
+                <p>TypeC и хватит вам нового</p>
+                <button class="open-form">Купить</button>
+            </div>
+        </div>
+    </main>
+
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()"></span>
+
+            <form id="registrationForm" action="submitForm.html" method="post" onsubmit="submitForm(event)">
+                <h1 class="main-heading">Заполните форму</h1>
+                <label for="name" class="form-label">Как вас зовут</label>
+                <input type="text" id="name" name="name" placeholder="" required class="form-input">
+                
+                <label for="email" class="form-label">Ваш e-mail</label>
+                <input type="email" id="email" name="email" placeholder=".....@mail.ru" required class="form-input">
+                
+                <label for="phone" class="form-label">Телефон</label>
+                <input type="tel" id="phone" name="phone" placeholder="+7 000 000 00 00" required class="form-input">
+                
+                <label for="country" class="form-label">Страна</label>
+                <select id="country" name="country" class="form-select">
+                    <option value="Россия">Россия</option>
+                    <option value="Беларусь">Беларусь</option>
+                    <option value="Казахстан">Казахстан</option>
+                    <option value="Грузия">Грузия</option>
+                    <option value="Другие">Другие</option>
+                </select>
+                
+                <label for="date" class="form-label">Дата</label>
+                <input type="date" id="date" name="date" required class="form-input">
+                
+                <label for="comments" class="form-label">Комментарий</label>
+                <textarea id="comments" name="comments" rows="4" placeholder="Ваши комментарии..." class="form-textarea"></textarea>
+                
+                <div class="checkbox">
+                    <input type="checkbox" id="consent" name="consent" required class="form-checkbox">
+                    <label for="consent" class="checkbox-label">Согласен на обработку моих персональных данных</label>
+                </div>
+                
+                <button type="submit" class="submit-button">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+       
+        document.querySelectorAll('.open-form').forEach(button => {
+            button.addEventListener('click', () => {
+                document.getElementById('modal').style.display = 'flex';
+            });
+        });
+
+        
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function submitForm(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+            
+            // Log all form fields to the console
+            const form = document.getElementById('registrationForm');
+            const formData = new FormData(form);
+            formData.forEach((value, key) => {
+                console.log(`${key}: ${value}`);
+            });
+    
+            closeModal(); 
+        }
+    </script>
+    <script defer src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #fff;
+}
+
+
+/* Стили для параграфов */
+.text-paragraph {
+    color: #fff;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+
+
+
+/* Стили для основного контента */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background: #666;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+/* Стили для видео */
+video {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+}
+
+/* Стили для футера */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #666;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Применение псевдоклассов */
+a:hover {
+    color: #FFf;
+}
+
+.product-card:active {
+    background-color: #444;
+}
+
+/* Стили для обертки контента */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Дополнительные стили для улучшения читаемости */
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* Стили для кнопок (если они есть на странице) */
+button {
+    background-color: #777;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: blue;
+}
+
+/* Медиа-запрос для адаптивности на мобильных устройствах */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .side-nav {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+}
+
+.text-paragraph {
+    transition: background-color 0.5s ease;
+}
+
+
+#lecturesTable {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+
+.profile-pic {
+    transition: transform 0.5s ease;
+}
+.profile-pic:hover {
+    transform: rotate(360deg);
+}
+
+
+#formMessage {
+    opacity: 0;
+    transition: opacity 0.5s ease, color 0.5s ease;
+}
